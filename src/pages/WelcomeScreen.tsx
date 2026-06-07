@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { OnboardingForm } from '../components/onboarding/OnboardingForm';
 import './WelcomeScreen.css';
 
 export const WelcomeScreen: React.FC = () => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [appState, setAppState] = useState<'loading' | 'ready'>('loading');
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Simulate initial loading sequence
@@ -14,6 +16,15 @@ export const WelcomeScreen: React.FC = () => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (isCompleted) {
+      const timer = setTimeout(() => {
+        navigate('/home');
+      }, 2000); // Navigate to home after 2 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [isCompleted, navigate]);
 
   const handleComplete = () => {
     setIsCompleted(true);

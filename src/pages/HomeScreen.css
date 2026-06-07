@@ -1,0 +1,110 @@
+.home-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  padding: 0 20px;
+  padding-bottom: 100px; /* Space for bottom nav */
+}
+
+.home-header {
+  position: absolute;
+  top: var(--spacing-lg, 20px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.home-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+  line-height: 1;
+}
+
+.brand-accent {
+  color: var(--accent-color, #39ff14); /* Assuming green/blue, but we can rely on variable */
+  text-shadow: 0 0 10px var(--accent-glow, rgba(57, 255, 20, 0.5));
+}
+
+.greeting-section {
+  height: 25vh; /* roughly 1/4 of the height off the top */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start; /* Alinhamento à esquerda */
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.greeting-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  gap: 0; /* Ensures no extra gap between Hi and Name */
+}
+
+.greeting-hi {
+  font-size: 1.5rem;
+  color: var(--accent-color, #39ff14);
+  font-weight: 700;
+  margin-bottom: -8px; /* Traz o nome mais para cima */
+  text-shadow: 0 0 10px var(--accent-glow, rgba(57, 255, 20, 0.5));
+}
+
+.greeting-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.content-section {
+  flex: 1;
+  display: flex;
+  align-items: flex-end; /* Move grid lower */
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.action-section {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 5px; /* Less spacing above bottom nav */
+}
+
+.start-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  border: none;
+  color: var(--bg-primary);
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 36px rgba(59, 130, 246, 0.5);
+}
+
+.start-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes pulse-soft {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  70% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.animate-pulse {
+  animation: pulse-soft 2s infinite;
+}

@@ -6,7 +6,7 @@
 }
 
 .welcome-header {
-  padding: var(--spacing-xxl) var(--spacing-xl) var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-sm);
   text-align: center;
   display: flex;
   flex-direction: column;
